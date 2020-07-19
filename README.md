@@ -32,9 +32,7 @@ curl --location --request POST 'http://localhost:8123/decision' \
 --data-raw '{
 	"checkpoint_id": 3,
 	"entity_id": 2
-}
-
-'
+}'
 ```
 
 Sample Response
