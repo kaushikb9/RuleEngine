@@ -1,0 +1,18 @@
+version: '2'
+services:
+  rule-service:
+    build: ./rule-service
+    container_name: rule_service
+    ports:
+     - "8123:8123"
+    links:
+      - db:db
+    depends_on:
+     - db
+    environment:
+     - DATABASE_HOST=db
+  db:
+    build: ./test-db
+    container_name: db
+    ports:
+     - "3306:3306"

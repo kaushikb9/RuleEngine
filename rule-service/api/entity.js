@@ -1,7 +1,5 @@
 'use strict';
 
-//  Only export - adds the API to the app with the given options.
-
 // [TODO] - Implement CRUD
 module.exports = (app, options) => {
 

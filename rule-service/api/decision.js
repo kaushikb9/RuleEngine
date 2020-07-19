@@ -1,6 +1,6 @@
 'use strict';
+let rule = require("../app/rule");
 
-//  Only export - adds the API to the app with the given options.
 module.exports = (app, options) => {
 
   app.post('/decision', (req, res, next) => {
@@ -10,8 +10,10 @@ module.exports = (app, options) => {
     if(!req.body.entity_id){
       res.status(400).send("entity_id is missing");
     }
-    options.ruleEngine.checkDecision(req.body).then((evaluation) => {
+    rule.decision(req.body).then((evaluation) => {
       res.status(200).send(evaluation);
+    },(err) => {
+      res.status(err.statusCode).send(err);
     })
     .catch(next);
   });

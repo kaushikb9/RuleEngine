@@ -5,9 +5,9 @@ module.exports = {
 	port: process.env.PORT || 8123,
   db: {
     host: process.env.DATABASE_HOST || '127.0.0.1',
-    database: 'atlan',
-    user: 'kaushik',
+    database: 'collect',
+    user: 'rule_manager',
     password: '123',
-    port: 3308
+    port: 3306
   }
 };

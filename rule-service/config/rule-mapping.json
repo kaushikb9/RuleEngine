@@ -1,0 +1,6 @@
+{
+	"$EXISTS": "SELECT COUNT(id) AS output FROM entity where id = $entity_id",
+	"$LAST_CHECKPOINT_SEQ": "SELECT sequence as output FROM activity a inner join checkpoint c on c.id = a.checkpoint_id where a.entity_id = $entity_id order by a.updated_on desc limit 1",
+	"$DAYS_SINCE_AT_CURRENT_CHECKPOINT": "SELECT TIMESTAMPDIFF(DAY,updated_on,NOW()) AS output FROM activity WHERE entity_id = $entity_id AND checkpoint_id = $checkpoint_id ORDER BY id desc LIMIT 1",
+	"$CURRENT_CHECKPOINT_SEQ": "SELECT sequence AS output FROM checkpoint WHERE id = $checkpoint_id"
+}
